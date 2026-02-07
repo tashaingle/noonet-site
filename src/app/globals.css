@@ -2,11 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Brand + UI tokens */
+:root {
+  --brand: 59 130 246; /* blue-ish */
+}
+
+/* Small global polish */
+::selection {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+*:focus-visible {
+  outline: 2px solid rgb(var(--brand));
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* Reusable components */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium text-white shadow-sm transition;
+  background: rgb(var(--brand));
+}
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl border px-6 py-3 font-medium transition hover:bg-gray-50;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border bg-white/80 px-3 py-1 text-xs font-medium text-gray-600;
+}
+
+.panel {
+  @apply rounded-3xl border bg-white/70 p-10 shadow-sm backdrop-blur;
+}
+
+/* “Less boxy” cards */
+.card {
+  @apply rounded-2xl border bg-white p-6 shadow-sm transition;
+  will-change: transform;
+}
+.card:hover {
+  @apply shadow-md;
+  transform: translateY(-2px);
+}
+
+/* Subtle surface to break up sections */
+.surface {
+  @apply rounded-3xl border bg-white p-8 shadow-sm;
+}
+
+.surface-muted {
+  @apply rounded-3xl border bg-gray-50 p-8;
 }
