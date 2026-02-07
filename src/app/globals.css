@@ -32,45 +32,45 @@ a {
   border-radius: 12px;
 }
 
-/* Reusable components */
-.btn-primary {
-  @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium text-white shadow-sm transition;
-  background: rgb(var(--brand));
-}
-.btn-primary:hover {
-  filter: brightness(0.95);
-}
-.btn-primary:active {
-  transform: translateY(1px);
-}
+/* ✅ Tailwind v4: put @apply classes inside a layer */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium text-white shadow-sm transition;
+    background: rgb(var(--brand));
+  }
+  .btn-primary:hover {
+    filter: brightness(0.95);
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
 
-.btn-secondary {
-  @apply inline-flex items-center justify-center rounded-xl border px-6 py-3 font-medium transition hover:bg-gray-50;
-}
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border px-6 py-3 font-medium transition hover:bg-gray-50;
+  }
 
-.badge {
-  @apply inline-flex items-center rounded-full border bg-white/80 px-3 py-1 text-xs font-medium text-gray-600;
-}
+  .badge {
+    @apply inline-flex items-center rounded-full border bg-white/80 px-3 py-1 text-xs font-medium text-gray-600;
+  }
 
-.panel {
-  @apply rounded-3xl border bg-white/70 p-10 shadow-sm backdrop-blur;
-}
+  .panel {
+    @apply rounded-3xl border bg-white/70 p-10 shadow-sm backdrop-blur;
+  }
 
-/* “Less boxy” cards */
-.card {
-  @apply rounded-2xl border bg-white p-6 shadow-sm transition;
-  will-change: transform;
-}
-.card:hover {
-  @apply shadow-md;
-  transform: translateY(-2px);
-}
+  .card {
+    @apply rounded-2xl border bg-white p-6 shadow-sm transition;
+    will-change: transform;
+  }
+  .card:hover {
+    @apply shadow-md;
+    transform: translateY(-2px);
+  }
 
-/* Subtle surface to break up sections */
-.surface {
-  @apply rounded-3xl border bg-white p-8 shadow-sm;
-}
+  .surface {
+    @apply rounded-3xl border bg-white p-8 shadow-sm;
+  }
 
-.surface-muted {
-  @apply rounded-3xl border bg-gray-50 p-8;
+  .surface-muted {
+    @apply rounded-3xl border bg-gray-50 p-8;
+  }
 }
