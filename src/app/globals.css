@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html,
 body {
@@ -32,7 +30,6 @@ a {
   border-radius: 12px;
 }
 
-/* ✅ Tailwind v4: put @apply classes inside a layer */
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-xl px-6 py-3 font-medium text-white shadow-sm transition;
