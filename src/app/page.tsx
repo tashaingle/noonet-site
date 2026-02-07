@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Smile,
   Zap,
@@ -48,7 +49,7 @@ export default function Home() {
     <main className="py-10 md:py-14">
       {/* Hero */}
       <section className="py-8 md:py-10">
-        <div className="panel">
+        <div className="panel bg-gradient-to-br from-blue-50/70 via-white to-white">
           <div className="flex flex-col gap-6">
             <div className="flex flex-wrap items-center gap-2">
               <span className="badge">Domestic IT Support</span>
@@ -56,37 +57,76 @@ export default function Home() {
               <span className="badge">Websites</span>
             </div>
 
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Friendly tech help for your home and small business
-              </h1>
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-2xl">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                  Friendly tech help for your home and small business
+                </h1>
 
-              <p className="mt-4 text-lg text-gray-600 max-w-2xl">
-                From slow laptops and Wi-Fi issues to full website builds — clear pricing, fast
-                turnaround, and no jargon.
-              </p>
-            </div>
+                <p className="mt-4 text-lg text-gray-600">
+                  From slow laptops and Wi-Fi issues to full website builds — clear pricing, fast
+                  turnaround, and no jargon.
+                </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Link href="/book" className="btn-primary">
-                Book a service
-              </Link>
-              <Link href="/services" className="btn-secondary">
-                View services
-              </Link>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/book" className="btn-primary">
+                    Book a service
+                  </Link>
+                  <Link href="/services" className="btn-secondary">
+                    View services
+                  </Link>
+                </div>
+              </div>
+
+              {/* Logo */}
+              <div className="flex md:justify-end">
+                <div className="rounded-3xl border bg-white/70 backdrop-blur p-5 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/icon.png"
+                      alt="Noonet logo"
+                      width={56}
+                      height={56}
+                      className="rounded-2xl"
+                      priority
+                    />
+                    <div>
+                      <p className="font-semibold leading-tight">Noonet</p>
+                      <p className="text-sm text-gray-600 leading-tight">
+                        Support you can trust
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-3 gap-3 text-sm text-gray-700">
+                    <div className="rounded-2xl border bg-white/80 px-3 py-2 flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                      <span>Clear</span>
+                    </div>
+                    <div className="rounded-2xl border bg-white/80 px-3 py-2 flex items-center gap-2">
+                      <ShieldCheck className="h-4 w-4 text-blue-600" />
+                      <span>Safe</span>
+                    </div>
+                    <div className="rounded-2xl border bg-white/80 px-3 py-2 flex items-center gap-2">
+                      <Wifi className="h-4 w-4 text-blue-600" />
+                      <span>Fast</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3 text-sm text-gray-700">
               <div className="card bg-white/80 flex items-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-blue-500" />
+                <CheckCircle2 className="h-5 w-5 text-blue-600" />
                 <span>Clear pricing</span>
               </div>
               <div className="card bg-white/80 flex items-center gap-3">
-                <ShieldCheck className="h-5 w-5 text-blue-500" />
+                <ShieldCheck className="h-5 w-5 text-blue-600" />
                 <span>Friendly support</span>
               </div>
               <div className="card bg-white/80 flex items-center gap-3">
-                <Wifi className="h-5 w-5 text-blue-500" />
+                <Wifi className="h-5 w-5 text-blue-600" />
                 <span>Remote or in-person</span>
               </div>
             </div>
@@ -123,6 +163,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Dark feature strip (breaks up the white) */}
+      <section className="py-10">
+        <div className="rounded-3xl bg-gray-900 text-white p-10 border border-black/10">
+          <div className="flex flex-col md:flex-row gap-8 md:items-center md:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold">Not sure what you need?</h2>
+              <p className="mt-2 text-gray-300 max-w-2xl">
+                Tell us what’s going wrong and we’ll point you in the right direction — no pressure,
+                no upselling.
+              </p>
+
+              <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-gray-200 sm:grid-cols-4">
+                <div className="flex items-center gap-2">
+                  <Laptop className="h-4 w-4 text-blue-300" /> Slow laptop
+                </div>
+                <div className="flex items-center gap-2">
+                  <Wifi className="h-4 w-4 text-blue-300" /> Wi-Fi issues
+                </div>
+                <div className="flex items-center gap-2">
+                  <Printer className="h-4 w-4 text-blue-300" /> Printer setup
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-blue-300" /> Security
+                </div>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-medium text-gray-900 hover:opacity-90 transition"
+              >
+                Get advice
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 font-medium text-white hover:bg-white/10 transition"
+              >
+                See services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="py-10">
         <h2 className="text-2xl font-bold">How it works</h2>
@@ -147,7 +232,10 @@ export default function Home() {
               step: "03",
             },
           ].map(({ title, desc, Icon, step }) => (
-            <div key={title} className="card">
+            <div
+              key={title}
+              className="card bg-gradient-to-br from-white via-white to-blue-50/40"
+            >
               <p className="text-xs font-semibold text-gray-500">{step}</p>
               <div className="mt-2 flex items-center gap-3">
                 <Icon className="h-5 w-5 text-blue-600" />
@@ -161,7 +249,7 @@ export default function Home() {
 
       {/* Service area */}
       <section className="py-10">
-        <div className="surface">
+        <div className="surface bg-gradient-to-br from-white via-white to-blue-50/40">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <div>
               <h2 className="text-2xl font-bold">Service area & availability</h2>
@@ -213,7 +301,7 @@ export default function Home() {
 
       {/* Final CTA */}
       <section className="py-10">
-        <div className="surface-muted">
+        <div className="surface-muted bg-gradient-to-br from-blue-50/50 via-white to-white">
           <div className="flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
             <div>
               <h2 className="text-2xl font-bold">Ready when you are</h2>
